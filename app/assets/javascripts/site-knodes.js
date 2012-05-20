@@ -119,7 +119,7 @@ var KnodesData = {
                 }
                 
                 if (i > 0 && i < KnodesData.users["total"]) {
-                    facepile.innerHTML += " + <div id='plusmore'>" + (parseInt(KnodesData.users["total"]) - i) + " more</div>";
+                    facepile.innerHTML += " <div id='plusmore'> +" + (parseInt(KnodesData.users["total"]) - i) + " more</div>";
                 }
                 
                 KnodesData.spinner.stop();
