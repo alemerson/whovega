@@ -95,9 +95,16 @@ var KnodesData = {
             if (KnodesData.request.status == 200) {
                 var data = KnodesData.request.responseText;
                 KnodesData.users = eval('(' + data + ')');
-                
                 var facepile = document.getElementById("facepile");
                 facepile.innerHTML = "";
+                
+                if (!data || data.length <= 0 || KnodesData.users["total"] == 0)
+                {
+                	KnodesData.spinner.stop();
+                	
+                	return;
+                }
+
                 for(var i = 0; i < KnodesData.users["results"].length; i++) {
                     var userData = KnodesData.users["results"][i];
                     var photoUrl = userData["photo_url"];

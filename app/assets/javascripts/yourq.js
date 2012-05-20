@@ -40,16 +40,22 @@ $(document).ready(function() {
      console.log($('#question').html());
      	if ($('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g)){
      		//place it in the array
-     		keywords = $('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g);
+     		console.log($('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g));
      		
+     		keywords = $('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g);
+     		console.log(keywords);
+     		
+     		//if the keywords string has changed
+     		if (keywords != $("#tags").val() ) {
      		
      		//place it in the hidden element
      		$("#tags").val(keywords);
-     		console.log($("#tags").val(keywords));
+     		
      		
      		//place a call to knodes
      		KnodesData.updateTags();
-
+     		
+			}
      		
      	}
      	
