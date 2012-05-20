@@ -1,9 +1,9 @@
 var DEBUG = false;
 
-var DOMAIN = "localhost";
-var SITE_URL = "http://" + DOMAIN + "/~manderson/yourq";
+var DOMAIN = "localhost:3000";
+var SITE_URL = "http://" + DOMAIN;
 
-var PROXY_URL = SITE_URL + "/proxy.php";
+var PROXY_URL = SITE_URL + "/proxy";
 
 var KNODES_USER = "4fb7ef5b8e63966e15000004";
 var KNODES_URL = "https://api.knod.es/"

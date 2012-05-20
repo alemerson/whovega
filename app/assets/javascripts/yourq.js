@@ -26,10 +26,15 @@ $(document).ready(function() {
      KnodesData.getLocation();
      });
      
+     $('#location-icon').click(function(){
+     	console.log("clicked location");
+		GeoData.getGeo();
+     });
+     
      $('#location').focus(function() {
 		console.log("clicked location");
 		GeoData.getGeo();
-	});
+	  });
 
 
 });

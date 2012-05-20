@@ -32,7 +32,6 @@ var KnodesData = {
             if (KnodesData.request.status == 200) {
                 var data = KnodesData.request.responseText;
                 KnodesData.location = eval('(' + data + ')');
-                
                 KnodesData.updateUsers();
             // Process JSON response
             } else
