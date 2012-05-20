@@ -25,6 +25,8 @@ $(document).ready(function() {
 
      GeoData.initialize();
      KnodesData.initialize();
+     LoginData.initialize();
+     
      var keywords = [];
      
      $('#question').focus(function() {
@@ -77,7 +79,18 @@ $(document).ready(function() {
 	  	$('#location').val(null);
 		KnodesData.getLocation();
 	  });
-
+	  
+	  $('#ask').click(function() {
+	  console.log(LoginData.userId);
+	  	
+	  	
+	  	$.ajax({
+			  type: 'POST',
+			  url: "/users/1/questions.json",
+			  data: {"question": { "question": $("#question").val(), "tags":  $("#tags").val(), "location": $("#location").val(), "user_id": 4 } },
+			  success: alert("much success")
+			});	  	
+	  });
 
 });
 
