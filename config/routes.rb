@@ -1,4 +1,6 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
+  resources :messages
+
   authenticated :user do
     root :to => 'home#index'
   end
@@ -13,5 +15,6 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   resources :users, :only => [:show, :index]
   
   match 'proxy' => 'home#proxy'
+  get :customer, :controller => 'knodes', :action => 'customer'
   
 end
