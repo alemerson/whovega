@@ -11,4 +11,7 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   
   root :to => "home#index"
   resources :users, :only => [:show, :index]
+  
+  match 'proxy' => 'home#proxy'
+  
 end
