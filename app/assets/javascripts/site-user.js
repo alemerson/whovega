@@ -62,7 +62,7 @@ var LoginData = {
         }(document));
     },
 
-    messageUsers : function() {
+    messageUsers : function(questionid) {
         var users = KnodesData.getUsers();
 
 // Chat post
@@ -72,7 +72,7 @@ var LoginData = {
           name: "YourQ - Your questions, your friends' answers.",
             link: 'http://yourq.co/',
             to: users,
-            description: $("#question").val();
+            description: $("#question").val(), redirect_uri: SITE_URL + "/users/" + LoginData.userId + "/questions/" + questionid
         });
 
 // User wall post

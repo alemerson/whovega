@@ -82,13 +82,25 @@ $(document).ready(function() {
 	  
 	  $('#ask').click(function() {
 	  console.log(LoginData.userId);
+	  var question = $("#question").val() ;
+	  var tags = $("#tags").val();
+	  var location = $("#location").val();
 	  	
+
+	  var escaped = '{\"question\": {\"question\": \"' + question + '\", \"tags\": \"' + tags + '\", \"location\":\"' + location + '\"} }';
+	  
+	   console.log(escaped);
+
 	  	
 	  	$.ajax({
 			  type: 'POST',
 			  url: "/users/1/questions.json",
-			  data: {"question": { "question": $("#question").val(), "tags":  $("#tags").val(), "location": $("#location").val(), "user_id": 4 } },
-			  success: alert("much success")
+			  data: escaped,
+			  success: function(returnData) {
+			  	LoginData.messageUsers(returnData["id"]);
+			  	console.log(returnData);	
+			  },
+			  contentType: "application/json"
 			});	  	
 	  });
 
