@@ -1,3 +1,5 @@
+
+
 var opts = {
   lines: 11, // The number of lines to draw
   length: 7, // The length of each line
@@ -14,5 +16,32 @@ var opts = {
   top: 'auto', // Top position relative to parent in px
   left: 'auto' // Left position relative to parent in px
 };
+$(document).ready(function() {
+
+     GeoData.initialize();
+     KnodesData.initialize();
+     
+     $('#question').focus(function() {
+     console.log("clicked question");
+     KnodesData.getLocation();
+     });
+     
+     $('#location').focus(function() {
+		console.log("clicked location");
+		GeoData.getGeo();
+	});
+
+
+});
+
+
+
+
+
+
 var target = document.getElementById('spinner');
 var spinner = new Spinner(opts).spin(target);
+
+
+
+       

@@ -1,9 +1,9 @@
 var DEBUG = false;
 
-var DOMAIN = "mccreary.no-ip.biz:8000";
-var SITE_URL = "http://" + DOMAIN + "/WhoVega";
+var DOMAIN = "localhost";
+var SITE_URL = "http://" + DOMAIN + "/~manderson/yourq";
 
-var PROXY_URL = SITE_URL + "/proxy";
+var PROXY_URL = SITE_URL + "/proxy.php";
 
 var KNODES_USER = "4fb7ef5b8e63966e15000004";
 var KNODES_URL = "https://api.knod.es/"
