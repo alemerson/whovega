@@ -189,6 +189,9 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twilio (3.1.0)
+      builder (>= 2.1.2)
+      httparty (~> 0.8)
     tzinfo (0.3.33)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
@@ -221,4 +224,5 @@ DEPENDENCIES
   rspec-rails (>= 2.9.0.rc2)
   sass-rails (~> 3.2.3)
   sqlite3
+  twilio
   uglifier (>= 1.0.3)

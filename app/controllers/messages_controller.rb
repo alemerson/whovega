@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
-    @fb_name = session["devise.facebook_data"].name
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,6 +41,11 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(params[:message])
+    @people = ActiveSupport::JSON.decode(people_data)
+    @people.each do |person|
+      #Twilio::Sms.message('+16467834994', person.number1, @message.message) if @message.number1
+      flash[:notice] += person.number
+    end
 
     respond_to do |format|
       if @message.save
