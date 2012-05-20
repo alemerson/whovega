@@ -2,8 +2,14 @@ var KnodesData = {
     request: false,
     users: false,
     location: false,
+    tags: false,
+    spinner: false,
+    target: false,
     
     initialize : function() {
+    KnodesData.target = document.getElementById('spinner');
+	KnodesData.spinner = new Spinner(opts);
+
         try {
             KnodesData.request = new XMLHttpRequest();
         } catch (trymicrosoft) {
@@ -20,13 +26,17 @@ var KnodesData = {
     },
     
     getLocation : function() {
-        var location = $("#location").serialize();
-       
-       console.log(location);
-        var knodesLocationSearch = KNODES_URL + "locations/search.json?" + KNODES_ACCOUNT + "&q=" + location;
-        KnodesData.request.open("GET", proxy(knodesLocationSearch), true);
-        KnodesData.request.onreadystatechange = KnodesData.handleLocation;
-        KnodesData.request.send(null);
+        var location = document.getElementById("location").value;
+        if (location.length <= 0) {
+            KnodesData.location = false;
+            KnodesData.updateUsers();
+        }
+        else {    
+            var knodesLocationSearch = KNODES_URL + "locations/search.json?" + KNODES_ACCOUNT + "&q=" + escape(location);
+            KnodesData.request.open("GET", proxy(knodesLocationSearch), true);
+            KnodesData.request.onreadystatechange = KnodesData.handleLocation;
+            KnodesData.request.send(null);
+        }
     },
     
     handleLocation : function() {
@@ -34,6 +44,7 @@ var KnodesData = {
             if (KnodesData.request.status == 200) {
                 var data = KnodesData.request.responseText;
                 KnodesData.location = eval('(' + data + ')');
+                
                 KnodesData.updateUsers();
             // Process JSON response
             } else
@@ -43,11 +54,40 @@ var KnodesData = {
                 
     },
     
+    updateTags : function() {
+        var tags = document.getElementById("tags").value.replace(/#/g,"");
+        if (tags.length <= 0) {
+            KnodesData.tags = false;
+        }
+        else {
+            KnodesData.tags = escape(tags);
+        }
+        
+        KnodesData.updateUsers();
+    },
+    
     updateUsers : function() {
-        var knodesLocationSearch = KNODES_URL + "locations/" + KnodesData.getLocationId() + "/people.json?" + KNODES_ACCOUNT;
-        KnodesData.request.open("GET", proxy(knodesLocationSearch), true);
-        KnodesData.request.onreadystatechange = KnodesData.handleUserUpdate;
-        KnodesData.request.send(null);
+    	
+        var userUpdateUrl = false;
+        if (KnodesData.location && KnodesData.tags) {
+            var userUpdateUrl = KNODES_URL + "locations/" + KnodesData.getLocationId() + "/people.json?" + KNODES_ACCOUNT + "&type=relevance&q=" + KnodesData.tags;
+        }
+        else if (KnodesData.location) {
+            var userUpdateUrl = KNODES_URL + "locations/" + KnodesData.getLocationId() + "/people.json?" + KNODES_ACCOUNT;
+        }
+        else if (KnodesData.tags) {
+            var userUpdateUrl = KNODES_URL + "people/search.json?" + KNODES_ACCOUNT + "&type=relevance&q=" + KnodesData.tags;
+        }
+        else {
+            document.getElementById("facepile").innerHTML = "";
+        }
+        
+        if(userUpdateUrl) {
+        	KnodesData.spinner.spin(KnodesData.target);
+            KnodesData.request.open("GET", proxy(userUpdateUrl), true);
+            KnodesData.request.onreadystatechange = KnodesData.handleUserUpdate;
+            KnodesData.request.send(null);
+        }
     },
     
     handleUserUpdate : function() {
@@ -68,12 +108,14 @@ var KnodesData = {
                             break;
                         }
                     }
-                    facepile.innerHTML += "<img width=50 height=50 src='" + photoUrl + "'/>";
+                    facepile.innerHTML += "<img width=50 height=50 src='" + photoUrl + "' onMouseOver='$(\"#user_name\").text(\"" + userData["name"] + "\");'/>";
                 }
                 
                 if (i > 0 && i < KnodesData.users["total"]) {
                     facepile.innerHTML += " +" + (parseInt(KnodesData.users["total"]) - i) + " more";
                 }
+                
+                KnodesData.spinner.stop();
 
             // Process JSON response
             } else
@@ -88,5 +130,24 @@ var KnodesData = {
         }
         
         return null;
+    },
+    
+    getUsers : function() {
+        var users = "";
+        for (var i = 0; i < KnodesData.users["results"].length; i++) {
+            var userData = KnodesData.users["results"][i];
+            var photoUrl = userData["photo_url"];
+            for (var j = 0; j < userData["networks"].length; j++) {
+                if (userData["networks"][j]["network"] == "facebook")
+                {
+                    if (i > 0)
+                        users += ",";
+                    users += userData["networks"][j]["network_id"];
+                    break;
+                }
+            }
+        }
+    
+        return users;
     }
 };

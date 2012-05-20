@@ -25,6 +25,7 @@ $(document).ready(function() {
 
      GeoData.initialize();
      KnodesData.initialize();
+     var keywords = [];
      
      $('#question').focus(function() {
      	KnodesData.getLocation();
@@ -36,8 +37,26 @@ $(document).ready(function() {
      });
      
      $('#question').bind('blur keyup',function() {
-     console.log($('#question').val());
-		$('#question').html($('#question').val().replace(/#([a-zA-Z]+)( |, |\.)+/g,'<span class="hash">$1</span> '))
+     console.log($('#question').html());
+     	if ($('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g)){
+     		//place it in the array
+     		keywords = $('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g);
+     		
+     		
+     		//place it in the hidden element
+     		$("#tags").val(keywords);
+     		console.log($("#tags").val(keywords));
+     		
+     		//place a call to knodes
+     		KnodesData.updateTags();
+
+     		
+     	}
+     	
+     	//replace with stylable spans
+		$('#results').html($('#question').val().replace(/#+([a-zA-Z]+)( |, |\.)+/g,'<span class="hash">$1</span> '))
+		
+		
       });
      
      $('#location').typeahead();
@@ -49,12 +68,13 @@ $(document).ready(function() {
      
      
      $('#location').blur(function() {
-		GeoData.getGeo();
+		//GeoData.getGeo();
+		KnodesData.getLocation();
 	  });
 	  
 	  $('.close').click(function() {
-	  console.log($('#location').val());
 	  	$('#location').val(null);
+		KnodesData.getLocation();
 	  });
 
 
@@ -65,8 +85,7 @@ $(document).ready(function() {
 
 
 
-var target = document.getElementById('spinner');
-var spinner = new Spinner(opts).spin(target);
+
 
 
 
