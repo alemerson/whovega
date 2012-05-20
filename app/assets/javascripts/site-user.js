@@ -21,24 +21,27 @@ var LoginData = {
         }
         
         window.fbAsyncInit = function() {
+ 
             FB.init({
                 appId      : FB_APP_ID, // App ID
-                channelUrl : '//' + DOMAIN + '/facebook/channel.php', // Channel File
+                channelUrl : 'http://' + DOMAIN + '/channel.html', // Channel File
                 status     : true, // check login status
                 cookie     : true, // enable cookies to allow the server to access the session
                 xfbml      : true  // parse XFBML
             });
             
             FB.getLoginStatus(function(response) {
+                   
                 if (response.status === 'connected') {
-                    document.getElementById("status").innerHTML = "Logged in!";
+                    alert("Logged in!");
                     
                     LoginData.accessToken = response.authResponse.accessToken;
+                    
                     LoginData.userId = response.authResponse.userID;
                 } else if (response.status === 'not_authorized') {
-                    document.getElementById("status").innerHTML = "Not authorized";
+                    alert("Not authorized");
                 } else {
-                    document.getElementById("status").innerHTML = "Log in";
+                   	alert("Log in");
                 }
             });
 
@@ -60,17 +63,17 @@ var LoginData = {
     },
 
     messageUsers : function() {
-        //var users = KnodesData.getUsers();
+        var users = KnodesData.getUsers();
 
 // Chat post
-//        FB.ui({
-//            app_id: FB_APP_ID,
-//            method: 'send',
-//            name: "Test 1",
-//            link: 'Test 2',
-//            to: users,
-//            description: "Test 4"
-//        });
+        FB.ui({
+            app_id: FB_APP_ID,
+            method: 'send',
+          name: "YourQ - Your questions, your friends' answers.",
+            link: 'http://yourq.co/',
+            to: users,
+            description: $("#question").val();
+        });
 
 // User wall post
 //        FB.api('/17504471/feed', 'post', {
