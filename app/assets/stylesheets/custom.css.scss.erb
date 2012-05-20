@@ -1,0 +1,122 @@
+body {
+	background-image: url('<%= image_path 'noise_pattern_with_crosslines.png' %>');
+	background-repeat: repeat;
+}
+
+#logo {
+
+	margin: auto;
+	
+}
+
+#question {
+	width:100%;
+	resize:none;
+}
+
+.content {
+	-webkit-border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px;
+	border-radius: 6px 6px 6px 6px;
+	-moz-box-shadow: 5px 5px 5px black;
+	-webkit-box-shadow: 5px 5px 5px black;
+	box-shadow: 0px 0px 30px black;
+}
+
+#ask {
+	width:100%;
+	font-weight: bold;
+}
+
+#location {
+	margin-top: 10px;
+	width: 80%;
+}
+
+
+
+.input-append .add-on, .input-prepend .add-on{
+		margin-bottom: -1px;
+}
+
+
+#close-icon {
+	background-color: white;
+	border-left: none;
+	
+	-webkit-box-shadow: inset 0 1px 1px 
+rgba(0, 0, 0, 0.075);
+-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+box-shadow: inset 0 1px 1px 
+rgba(0, 0, 0, 0.075);
+-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+-ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+transition: border linear 0.2s, box-shadow;
+
+
+	a {
+		float:left;
+	}
+
+
+}
+
+#friends {
+	margin-top:10px;
+	height:200px;
+}
+
+
+.dummyfriend {
+	height: 50px;
+	width: 50px;
+	display:inline-block;
+	background-color: #CCC;
+	
+}
+
+.half {
+	width:100px;
+	display:inline block;
+}
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	left:0px;
+	width: 100%;
+	padding:0px 0px;
+}
+
+
+#footernav{
+	height: 50px;
+	color: white;
+	background: #45484d; /* Old browsers */
+background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #45484d 0%,#000000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
+background: linear-gradient(top,  #45484d 0%,#000000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+  @media only screen and (min-width: 600px) {
+  
+  	.content{
+  		width:600px;
+  		margin: auto;
+  		margin-top: 50px;
+  	}
+  	
+  	#location {
+	margin-top: 10px;
+	width: 89%;
+}
+  
+  }
