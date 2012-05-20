@@ -1,6 +1,6 @@
 var DEBUG = false;
-var DOMAIN = "localhost:3000";
-//var DOMAIN = "mccreary.no-ip.biz:3000";
+//var DOMAIN = "localhost:3000";
+var DOMAIN = "mccreary.no-ip.biz:3000";
 var SITE_URL = "http://" + DOMAIN;
 
 var PROXY_URL = SITE_URL + "/proxy";
