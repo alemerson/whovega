@@ -1,0 +1,55 @@
+#logo {
+	
+}
+
+#question {
+	width:100%;
+	resize:none;
+}
+
+.content {
+	-webkit-border-radius: 6px 6px 6px 6px;
+	-moz-border-radius: 6px 6px 6px;
+	border-radius: 6px 6px 6px 6px;
+}
+
+#ask {
+	width:100%;
+}
+
+#location {
+	margin-top: 10px;
+}
+
+.input-append .add-on, .input-prepend .add-on{
+		margin-bottom: -1px;
+}
+
+#friends {
+	margin-top:10px;
+	height:200px;
+}
+
+
+.dummyfriend {
+	height: 50px;
+	width: 50px;
+	display:inline-block;
+	background-color: #CCC;
+	
+}
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	left:0px;
+	width: 100%;
+	padding:0px 0px;
+}
+
+
+#footernav{
+	height: 50px;
+	background-color: black;
+	color: white;
+}
