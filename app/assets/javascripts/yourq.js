@@ -37,7 +37,7 @@ $(document).ready(function() {
      
      $('#question').bind('blur keyup',function() {
      console.log($('#question').val());
-		$('#question').val($('#question').val().replace(/#([a-zA-Z]+)( |, |\.)+/g,'<span class="hash">$1</span> '))
+		$('#question').html($('#question').val().replace(/#([a-zA-Z]+)( |, |\.)+/g,'<span class="hash">$1</span> '))
       });
      
      $('#location').typeahead();
