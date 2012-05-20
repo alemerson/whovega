@@ -39,28 +39,25 @@ $(document).ready(function() {
      $('#question').bind('blur keyup',function() {
      console.log($('#question').html());
      	if ($('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g)){
-     		//place it in the array
-     		console.log($('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g));
-     		
+     		//place it in the array    		
      		keywords = $('#question').val().match(/#+([a-zA-Z]+)( |, |\.)+/g);
-     		console.log(keywords);
      		
      		//if the keywords string has changed
      		if (keywords != $("#tags").val() ) {
      		
-     		//place it in the hidden element
-     		$("#tags").val(keywords);
-     		
-     		
-     		//place a call to knodes
-     		KnodesData.updateTags();
+	     		//place it in the hidden element
+	     		$("#tags").val(keywords);
+	     		
+	     		
+	     		//place a call to knodes
+	     		KnodesData.updateTags();
      		
 			}
      		
      	}
      	
-     	//replace with stylable spans
-		$('#results').html($('#question').val().replace(/#+([a-zA-Z]+)( |, |\.)+/g,'<span class="hash">$1</span> '))
+     	//replace with stylable spans - DOES NOT WORK :(
+		//$('#results').html($('#question').val().replace(/#+([a-zA-Z]+)( |, |\.)+/g,'<span class="hash">$1</span> '))
 		
 		
       });
@@ -70,8 +67,6 @@ $(document).ready(function() {
      $('#location-icon').click(function(){
 		GeoData.getGeo();
      });
-     
-     
      
      $('#location').blur(function() {
 		//GeoData.getGeo();
