@@ -27,13 +27,12 @@ $(document).ready(function() {
      KnodesData.initialize();
      
      $('#question').focus(function() {
-     	
      	KnodesData.getLocation();
      });
       $('#question').blur(function() {
      	
      	var contents = $("#question").val();
-     	console.log(contents);
+     	//console.log(contents);
      });
      
      $('#location-icon').click(function(){

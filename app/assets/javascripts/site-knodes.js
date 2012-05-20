@@ -20,7 +20,9 @@ var KnodesData = {
     },
     
     getLocation : function() {
-        var location = document.getElementById("location").value;
+        var location = $("#location").serialize();
+       
+       console.log(location);
         var knodesLocationSearch = KNODES_URL + "locations/search.json?" + KNODES_ACCOUNT + "&q=" + location;
         KnodesData.request.open("GET", proxy(knodesLocationSearch), true);
         KnodesData.request.onreadystatechange = KnodesData.handleLocation;

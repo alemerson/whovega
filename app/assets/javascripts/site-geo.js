@@ -56,8 +56,10 @@ var GeoData = {
     
     
     getGeo : function()
-    {
-        $.geo({
+    {	
+    	this.handleReverseGeocode();
+        /*
+		$.geo({
             failToGoogle: false,
             enableHighAccuracy: true
         }).done(function (pos){
@@ -68,5 +70,6 @@ var GeoData = {
         }).fail(function () {
             alert('Could not determine position');
         });
+*/
     }
 };
