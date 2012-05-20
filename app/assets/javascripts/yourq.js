@@ -32,17 +32,26 @@ $(document).ready(function() {
       $('#question').blur(function() {
      	
      	var contents = $("#question").val();
-     	//console.log(contents);
+     	
      });
      
+     $('#question').bind('blur keyup',function() {
+     console.log("keyup");
+    	 $('#results')
+            .html('<span>'+$('#results')
+                .html().replace(/( |, |\. )/g,'</span>$1<span>').replace(/\n/g,'</span><br /><br /><span>')+'</span>')
+      });
+     
+     $('#location').typeahead();
+     
      $('#location-icon').click(function(){
-     	console.log("clicked location");
 		GeoData.getGeo();
      });
      
-     $('#location').focus(function() {
-		//console.log("clicked location");
-		//GeoData.getGeo();
+     
+     
+     $('#location').blur(function() {
+		GeoData.getGeo();
 	  });
 	  
 	  $('.close').click(function() {
