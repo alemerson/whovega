@@ -16,14 +16,24 @@ var opts = {
   top: 'auto', // Top position relative to parent in px
   left: 'auto' // Left position relative to parent in px
 };
+
+function displayType(){
+      
+}
+
 $(document).ready(function() {
 
      GeoData.initialize();
      KnodesData.initialize();
      
      $('#question').focus(function() {
-     console.log("clicked question");
-     KnodesData.getLocation();
+     	
+     	KnodesData.getLocation();
+     });
+      $('#question').blur(function() {
+     	
+     	var contents = $("#question").val();
+     	console.log(contents);
      });
      
      $('#location-icon').click(function(){
@@ -32,8 +42,13 @@ $(document).ready(function() {
      });
      
      $('#location').focus(function() {
-		console.log("clicked location");
-		GeoData.getGeo();
+		//console.log("clicked location");
+		//GeoData.getGeo();
+	  });
+	  
+	  $('.close').click(function() {
+	  console.log($('#location').val());
+	  	$('#location').val(null);
 	  });
 
 
