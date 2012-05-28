@@ -111,11 +111,11 @@ var KnodesData = {
                     for (var j = 0; j < userData["networks"].length; j++) {
                         if (userData["networks"][j]["network"] == "facebook")
                         {
-                            photoUrl = "https://graph.facebook.com/" + userData["networks"][j]["network_id"] + "/picture?type=square";
+                            photoUrl = "https://graph.facebook.com/" + userData["networks"][j]["network_id"] + "/picture?type=square&type=large";
                             break;
                         }
                     }
-                    facepile.innerHTML += "<img width=50 height=50 src='" + photoUrl + "' onMouseOver='$(\"#user_name\").text(\"" + userData["name"] + "\");'/>";
+                    facepile.innerHTML += "<div class='profileimg'><img src='" + photoUrl + "' onMouseOver='$(\"#user_name\").text(\"" + userData["name"] + "\");'/><div class='nameoverlay'>" + userData["name"] + "</div></div>";
                 }
                 
                 if (i > 0 && i < KnodesData.users["total"]) {
