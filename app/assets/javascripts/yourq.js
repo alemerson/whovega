@@ -17,10 +17,6 @@ var opts = {
   left: 'auto' // Left position relative to parent in px
 };
 
-function displayType(){
-      
-}
-
 $(document).ready(function() {
 
      GeoData.initialize();

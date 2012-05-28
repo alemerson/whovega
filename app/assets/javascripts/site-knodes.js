@@ -76,7 +76,7 @@ var KnodesData = {
             var userUpdateUrl = KNODES_URL + "locations/" + KnodesData.getLocationId() + "/people.json?" + KNODES_ACCOUNT;
         }
         else if (KnodesData.tags) {
-            var userUpdateUrl = KNODES_URL + "people/search.json?" + KNODES_ACCOUNT + "&type=relevance&q=" + KnodesData.tags;
+            var userUpdateUrl = KNODES_URL + "people/search.json?" + KNODES_ACCOUNT + "&type=relevance&num=12&q=" + KnodesData.tags;
         }
         else {
             document.getElementById("facepile").innerHTML = "";
