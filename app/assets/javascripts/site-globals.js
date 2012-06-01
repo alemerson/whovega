@@ -1,5 +1,5 @@
 var DEBUG = false;
-var DOMAIN = "10.0.1.35:3000";
+var DOMAIN = "localhost:3000";
 //var DOMAIN = "mccreary.no-ip.biz:3000";
 var SITE_URL = "http://" + DOMAIN;
 
