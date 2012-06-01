@@ -1,11 +1,16 @@
 body {
-	background-image: url('<%= image_path 'noise_pattern_with_crosslines.png' %>');
-	background-repeat: repeat;
+	background: white;
+}
+
+.navbar-inner {
+	background: white;
+	box-shadow: none;
 }
 
 #logo {
 
 margin-left: 50%;
+display: none;
 	
 }
 
@@ -13,28 +18,46 @@ margin-left: 50%;
 	margin-left: -85px
 }
 
+#contentlogo {
+	padding-left: 140px;
+	
+	@media only screen and (max-width: 600px) {
+  			padding-left: 90px;
+  		 }
+	
+	img {
+	
+	}
+}
+
+#tagline{
+	text-align: center;
+	margin-bottom:25px;
+}
+
 #question {
 	width:100%;
 	resize:none;
 	font-size: 18px;
 	line-height: 125%;
-	@media only screen and (min-width: 600px) {
-  		width:98%;
-  	}
+	padding: 0px;
+	box-shadow: inset 1px 1px 2px #999;
+	border-radius: 5px 5px 0px 0px;
+	margin:0px;
+	
 }
 
 .content {
-	-webkit-border-radius: 6px 6px 6px 6px;
-	-moz-border-radius: 6px 6px 6px;
-	border-radius: 6px 6px 6px 6px;
-	-moz-box-shadow: 5px 5px 5px black;
-	-webkit-box-shadow: 5px 5px 5px black;
-	box-shadow: 0px 0px 30px black;
+	background: white;
+	box-shadow: none;
+	width: 400px;
+	padding: 0px;
+	margin: auto;
 	
-	@media only screen and (min-width: 600px) {
-  		 width:600px;
-  		margin: auto;
+	@media only screen and (max-width: 600px) {
+  		
   		margin-top: 50px;
+  		width: 300px;
   	}
 }
 
@@ -45,23 +68,24 @@ margin-left: 50%;
 	font-size: 24px;
 }
 
+#location-container {
+	width: 100%;
+	height: 26px;
+	border: 1px solid #CCC;
+	box-shadow: inset 1px 1px 2px #999;
+}
+
 #location {
-	margin-top: 1px;
 	width: 80%;
-	margin-left: -5px;
+	margin-left: 0px;
 	margin-right: -5px;
 	font-size: 18px;
 	margin-bottom: 0px;
+	float: left;
+	border: none;
+	background: transparent;
 	
-	@media only screen and (min-width: 600px) {
-  		margin-top: 1px;
-		width: 89%;
-  }
-  
-  @media only screen and (max-width: 480px) {
-  		margin-top: 1px;
-		width: 74%;
-  }
+	
 }
 
 #location span {
@@ -79,8 +103,14 @@ margin-left: 50%;
 		margin-bottom: -1px;
 }
 
+#location-icon {
+	float:left;
+	margin-top: -1px;
+}
 
 #close-icon {
+	float: right;
+	margin-top:-1px;
 	background-color: white;
 	border-left: none;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -99,6 +129,7 @@ margin-left: 50%;
 
 .close{
 	font-size: 4px;
+
 	}
 	.close:hover{
 			background-color: white;
