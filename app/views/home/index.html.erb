@@ -1,18 +1,18 @@
 <div class="row-fluid">
-	<a href="/"><span id="contentlogo"><%= image_tag 'biglogo.png' %></span></a>
+	<a href="/"><span id="contentlogo"><%= image_tag 'logo.png' %></span></a>
 </div>
 
 <div class="row-fluid">
-	<h3 id="tagline">Don't search, ask your friends.</h3>
-	<textarea id="question" rows="4" class="span2" placeholder="Type your question here. Use hashtags to mark #important #keywords."></textarea>
+	<!--<h3 id="tagline">Don't search, ask your friends.</h3>-->
+	<textarea id="question" class="span2" placeholder="Type your question here. Use hashtags to mark #important #keywords."></textarea>
 	<input type="hidden" id="tags" value="."/>
 </div>
 
 <div class="row-fluid">
     <div id="location-container" class="input-prepend input-append">
-		<span id="location-icon" class="add-on"><%= image_tag 'locatesmall.png' %></span>	
+    	<p>Location:</p>	
 		<input class="location" id="location" size="16" type="text" placeholder="Friend's current city." />
-		<span id="close-icon" class="add-on"><a class="close" href="#"><%= image_tag 'x.png' %></a></span>
+		<span id="location-icon" class="add-on"><a class="location" href="#"><%= image_tag 'location.png' %></a></span>
     </div>
 </div>
 
